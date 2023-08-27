@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In</title>
+    <link rel="stylesheet" href="{% static 'css/signin.css' %}" />
+    <style>
+      /* messages */
+      .notification {
+        width: 300px;
+        padding: 15px;
+        margin: 20px auto;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        position: absolute;
+        top: 18%;
+        left: 45%;
+      }
+
+      .error {
+        background-color: #f44336;
+        color: white;
+      }
+
+      .success {
+        background-color: #4caf50;
+        color: white;
+      }
+
+      .close {
+        float: right;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        <a href="{% url 'index'%}"
+          ><img
+            src="https://st.hzcdn.com/res/28195351/pic/houzz_logo.svg?v=28195351"
+            height="40"
+            width="100"
+        /></a>
+      </h1>
+      <hr style="opacity: 0.6" />
+    </header>
+    <main>
+      <!--check for message messsage  -->
+      {% if messages %} {% for message in messages %}
+
+      <div
+        {%
+        if
+        message.tags
+        %}
+        class="notification {{message.tags}}"
+        {%
+        endif
+        %}
+      >
+        <span class="close" onclick="this.parentElement.style.display='none'"
+          >&times;</span
+        >
+        <strong> Message: </strong> {{message}}
+      </div>
+      {% endfor %} {% endif %}
+      <!-- form -->
+      <div class="main-div">
+        <div class="left-div">
+          <form
+            method="POST"
+            class="signin_form"
+            action="{% url 'sign_in_auth' %}"
+          >
+            {% csrf_token %}
+            <h2 for="">Houzz Login</h2>
+            <!-- email -->
+            <br /><br />
+
+            <label for="email">Email</label>
+            <input type="email" name="email" id="" / class="text-field"
+            value="angellakatusiime32@gmail.com">
+            <!-- password -->
+            <br />
+            <label for="password">Password</label><br />
+            <input
+              type="password"
+              name="password"
+              id=""
+              class="text-field"
+              value="angella123"
+            />
+            <!-- show password -->
+            <input
+              type="checkbox"
+              name="showpassword"
+              id=""
+              style="display: inline; width: auto"
+            />
+            <label for="showpassword">Show password</label>
+            <!-- signin/logoin buttom -->
+            <button type="submit">Login</button>
+            <!-- link to signup -->
+          </form>
+          <p>
+            Don't have an account yet?
+            <a href="{% url 'signup' %}">join now</a>
+          </p>
+          <!-- <a href="{% url 'index' %}">Go to index page</a> -->
+        </div>
+        <div class="right-div">
+          <img
+            src="https://st.hzcdn.com/static/assets/login_chill.png"
+            height="150"
+          />
+        </div>
+      </div>
+    </main>
+    <!-- profile_list.html -->
+    <!-- {% for profile in UserProfile %}
+<p>Welcome {{ profile.username }}</p>
+<p>Email: {{ profile.email }}</p>
+Other fields... -->
+    <!-- {% endfor %} -->
+  </body>
+</html>

@@ -1,0 +1,221 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sale</title>
+    <link rel="stylesheet" href="{% static 'css/sale.css' %}" />
+  </head>
+  <body>
+    <div class="headerDiv">
+      <ul>
+        <li>
+          <a href="{% url 'index'%}"
+            ><img
+              src="https://st.hzcdn.com/res/28195351/pic/houzz_logo.svg?v=28195351"
+              height="20"
+          /></a>
+        </li>
+        <li>index</li>
+        <li>Get ideas</li>
+        <li>Find professionals</li>
+        <li>Shop by Department</li>
+
+        <input
+          type="search"
+          placeholder="Search houzz"
+          style="border-radius: 10px"
+        />
+        <div class="side">
+          <li style="color: rgb(42, 74, 42)">
+            <a href="{% url 'sale' %}">Sale</a>
+          </li>
+          <li>
+            <a href="{% url 'cart' %}"
+              ><img
+                src="{%static 'images\icons8-cart-50.png' %}"
+                alt="icon img"
+                style="width: 20px"
+            /></a>
+          </li>
+
+          <li style="color: rgb(79, 79, 248)">
+            <a href="{% url 'join' %}">Join as a Pro</a>
+          </li>
+        </div>
+      </ul>
+    </div>
+
+    <section>
+      <div>
+        <!-- <h3>Roll Out the Savings</h3>
+        <pr>Transform your index from the ground up. <br>
+         Save up to 75% off indoor and outdoor <br>
+         rugs during our Rug Sale.
+        </pr><br> -->
+        <img
+          src="https://st.hzcdn.com/simgs/8261d31e04d16b90_14-6197/index-design.jpg"
+          alt="img icon"
+          style="width: 1250px"
+        /><br />
+      </div>
+
+      <div>
+        <h2 style="padding-left: 10px">Featured Sale Categories</h2>
+        <div class="fe">
+          <img
+            src="https://www.houzz.com/products/area-rugs/on-sale"
+            alt="icon img"
+          /><br />
+          <h4>Area Rugs</h4>
+        </div>
+        <div class="fe">
+          <img
+            src="https://www.houzz.com/products/outdoor-rugs/on-sale"
+            alt="icon img"
+          /><br />
+          <h4>Outdoor Rugs</h4>
+        </div>
+        <div class="fe">
+          <img
+            src="https://www.houzz.com/products/hall-and-stair-runners/on-sale"
+            alt="img icon"
+          /><br />
+          <h4>Hallway& Stair Runners</h4>
+        </div>
+        <div>
+          <img
+            src="https://www.houzz.com/products/rug-pads/on-sale"
+            alt="icon img"
+          /><br />
+          <h4>Rug Pads</h4>
+        </div>
+      </div>
+      <div class="ultimate">
+        <div>
+          <img
+            src="	https://st.hzcdn.com/simgs/3161b23904d108a9_9-0841/index-design.jpg"
+            alt="icon img"
+            style="width: 30%; display: flex"
+          /><br />
+          <h4>The Ultimate Rug sale</h4>
+          <pr
+            >Layer your floors with neutral tones, a pop of color, or a vibranty
+            pattern</pr
+          >
+          <a href="">Shop Now &rightarrow;</a>
+        </div>
+        <br />
+        <div>
+          <img
+            src="	https://st.hzcdn.com/simgs/5821758b04d108b6_9-0854/index-design.jpg"
+            alt="icon img"
+            style="width: 30%; display: flex"
+          />
+          <h4>Summer Closeouts:Area Rugs</h4>
+          <pr
+            >Wrap up the season in style with thesse uneatable savings on area
+            yugs</pr
+          >
+          <a href="">Shop Now &rightarrow;</a>
+        </div>
+        <br />
+        <div>
+          <img
+            src="https://st.hzcdn.com/simgs/3ee1900e04d16d01_9-6530/index-design.jpg"
+            alt="icon img"
+            style="width: 30%; display: flex"
+          />
+          <h4>Living Room Rugs</h4>
+          <pr
+            >Add style and comfort to your living room with these beatsellling
+            are rugs</pr
+          >
+          <a href="">Shop Now &rightarrow;</a>
+        </div>
+      </div>
+      <br />
+      <div>
+        <h3>Shop Unique Rugs</h3>
+        <h4>FREE- SHIPPING</h4>
+        <a href="">Shop Now &rightarrow;</a>
+        <pr
+          >Machine-Washable rugs <br />
+          Fring rugs <br />
+          Noevlty rugs <br />
+          Shag Rugs</pr
+        >
+      </div>
+      <div>
+        <h3>Trend Alert: Washable rugs</h3>
+        <h4>BEST SELLERS</h4>
+        <a href="">Shop Now &rightarrow;</a>
+        <pr
+          >5x8 rugs <br />
+          8x10 rugs <br />
+          9x12 rugs <br />
+          All rug sizes</pr
+        >
+      </div>
+      <img src="https://st.hzcdn.com/simgs/e051221c04e3d3c7_9-2488/index-design.jpg" alt="img" style="padding-left: 50%; height: 300px;">
+      <img src="https://st.hzcdn.com/simgs/1911433104e3d3ed_9-2525/index-design.jpg" alt="icon img" style="padding-left: 50%; height: 300px;">
+      <img src="https://st.hzcdn.com/simgs/c5c1dcd104e3d3fb_9-2540/index-design.jpg" alt="icon img" style="padding-left: 50%; height: 300px;">
+      <div>
+        <h3>Shop Unique Rugs</h3>
+        <h4>TRENDING NOW</h4>
+        <a href="">Shop Now &rightarrow;</a>
+        <pr
+          >Oriental rugs <br />
+          Nature & floral rugs <br />
+          Geometric rugss <br />
+          Abstract rugs</pr
+        >
+      </div>
+      <div class="black">
+        <div class="arc">
+          <h3>Fall Preview: Area Rugs</h3>
+          <pr
+            >Fall into comfort and style with these autumn-inspired area
+            rugs</pr
+          >
+          <a href="">Shop Now &rightarrow;</a>
+          <br><br>
+          <img src="https://st.hzcdn.com/simgs/7fd1238a04e3d7ba_16-3503/index-design.jpg" alt="icon img" style="height:300px; border-radius: 40px; padding-left:3px;">
+        </div>
+        <div class="car">
+          <h3>On sale: Hign Traffic Runner rugs</h3>
+          <pr
+            >Shop bright and vibrant runners to update your hallways, kitchen
+            and more
+          </pr>
+          <a href="">Shop Now &rightarrow;</a>
+          <br><br>
+          <img src="https://st.hzcdn.com/simgs/c14189fd04e3d7cc_16-3517/index-design.jpg" alt="icon img" style="height: 300px; border-radius:40px; padding-left: 8px;">
+        </div>
+      </div>
+      <div>
+        <h2>Outdoor Rugss</h2>
+        <pr>Shop vibrant patterns, eye-catching prints and neutral designs</pr>
+        <a href="">Shop Now &rightarrow;</a>
+      </div>
+      <div>
+        <h2>Rug and Rug pad pairings</h2>
+        <pr>Keep your floor coverings intact with these paired rug pads</pr>
+        <a href="">Shop Now &rightarrow;</a>
+      </div>
+      <div>
+        <h1>Bestsellers: Durable Indoor-Outdoor Rugs</h1>
+        <img
+          src="D:\houzz dj\houzz\houzz_project\static\images\forward.webp"
+          alt="icon img"
+        /><br />
+        <pr
+          >These stylish picks withstand harsh weather and heavy foot traffic
+          <br />
+          <a href="">Shop Now &rightarrow;</a>
+        </pr>
+      </div>
+    </section>
+  </body>
+</html>

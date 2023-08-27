@@ -1,0 +1,129 @@
+body {
+  margin: 0;
+  /* display: flex; */
+  padding-bottom: 1000px;
+  max-height: fit-content;
+  margin-bottom: 0;
+  list-style: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.8em;
+}
+a {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+header ul,
+div li {
+  list-style: none;
+  display: inline-flex;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.footer-items {
+  /* display:flex; */
+  column-count: 4;
+  padding: 20px;
+  display: table;
+}
+
+.footer-items li {
+  word-wrap: break-word;
+}
+
+.footer-elements {
+  display: inline-flex;
+  background-color: rgb(179, 176, 176);
+  width: 100%;
+  /* display: table; */
+}
+
+.footer-elements li {
+  /* display: inline; */
+  display: table;
+  word-wrap: break-word;
+}
+.cap {
+  margin-left: 3px;
+  display: flex;
+}
+.customerv {
+  display: inline;
+  flex-direction: column;
+  /* background-color: aqua; */
+  padding: 7px 10px;
+  height: 50vh;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgb(202, 202, 202);
+  justify-content: space-between;
+}
+.customerv img {
+  width: 70%;
+}
+.customerv p {
+  display: inline;
+}
+.decor {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 50%;
+}
+
+h4,
+h3 {
+  font-size: 0.8em;
+  background-color: rgb(0, 73, 0);
+  font-family: Arial, Helvetica, sans-serif;
+  color: aliceblue;
+  text-align: center;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.customer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  /* padding:2px;*/
+  margin:4px; 
+  /* margin-bottom:px; */
+}
+select,
+input {
+  width: 30%;
+  height: 7vh;
+  /* justify-content: left; */
+}
+input {
+  background-color: #034703;
+  color: aliceblue;
+  margin: 20px 0;
+  border-radius: 5px;
+  border: none;
+}
+.rt {
+  box-shadow: 0 0 5px gray;
+  /* display: flex; */
+  justify-content: flex-end;
+  width: 50%;
+  height: 100vh;
+  text-align: left;
+  font-size: medium;
+}
+.pop {
+  box-shadow: 0 0 5px gray;
+  display: flex;
+  justify-content: left;
+}
+.fab mat {
+  display: flex;
+  justify-content: space-between;
+}
+/* .mat{
+   display: flex;
+  justify-content: space-between;
+} */

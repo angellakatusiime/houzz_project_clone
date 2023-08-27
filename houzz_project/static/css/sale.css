@@ -1,0 +1,52 @@
+body{
+ margin:0;
+ font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+ font-size: 14px;
+ line-height: 1.42857143;
+ color: #333333;
+ background-color: #ffffff;
+}
+a{
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+section{
+    padding-left:30px;
+    padding-top: 0;
+}
+.fe, .img, .ultimate{
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.black{
+
+    background-color: black;
+}
+.arc, .car{
+    color: white;
+    display: inline-table;
+
+}
+
+.black{
+  display:flex;
+  height: 500px;
+}
+.header ul,
+div li {
+  list-style: none;
+  display: inline-flex;
+  padding: 10px;
+  cursor: pointer;
+}
+.headerDiv {
+
+  background-color: rgb(205, 205, 205);
+  padding: 15px;
+}
+.headerDiv ul {
+  display: flex;
+  justify-content: space-between;
+}

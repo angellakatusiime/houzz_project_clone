@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join as a pro</title>
+    <link rel="stylesheet" href="{% static 'css/houzz.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/join.css' %}" />
+
+</head>
+
+<body>
+    <div class="headerDiv">
+        <ul>
+             <li><a href="{% url 'index'%}"><img
+               src="https://st.hzcdn.com/res/28195351/pic/houzz_logo.svg?v=28195351" height="20" /></a>
+            </li>
+            <li>Who we serve</li>
+            <li>Features</li>
+            <li>Learn</li>
+            <li>Pricing</li>
+
+            <div class="side">
+
+                <a href="https://calendly.com/houzz-pro-demo/1?utm_campaign=7018b000000td1n"><button
+                        style="height:30px;">Get a Demo</button style="cursor:pointer;"></a>
+                {% comment %} <li><a href="{% url 'signin' %}">Sign In</a></li> {% endcomment %}
+
+            </div>
+        </ul>
+
+    </div>
+
+    <div class="header">
+
+        <form action="{% url 'register_user' %}" method="POST">
+            {% csrf_token %}
+            <h2>One simple solution for contractors and design pros</h2>
+            <pr>Attract and win better clients,run profitable projects and deliver a standout customer experience-all in one
+            place.</pr><br>
+            <input type="email" placeholder="Email" name="email" value="{{reg_email}}" required>
+            <input type="password" placeholder="Create password" name="password" required><br>
+            <button type=" submit" style=" width:80%; font-family: 'Gill Sans' , 'Gill Sans MT' , Calibri, 'Trebuchet MS' ,
+            sans-serif;">Create Account</button>
+
+            <h6>By signing up, signing in or continuing, I agree to Houzz's Terms of use and Privacy Policy.</h6>
+        </form>
+
+    </div>
+
+    <h1>Houzz Pro software is trusted by 3 million+ contractors & design pros</h1>
+    <div class="stars">
+        <img src="https://st.hzcdn.com/static/overview_star_reviews/stars_4half@2x.png" alt="icon img"
+            style="width:120px; display:flex;"><br>
+        <pr>Capterra</pr><br>
+        <img src="https://st.hzcdn.com/static/overview_star_reviews/stars_4half@2x.png" alt="icon img"
+            style="width:120px; display:flex;"><br>
+        <pr>Software Advice</pr><br>
+        <img src="https://st.hzcdn.com/static/overview_star_reviews/stars_4half@2x.png" alt="icon img"
+            style="width:120px; display:flex;"><br>
+        <pr>GetApp</pr><br>
+        <img src="https://st.hzcdn.com/static/overview_star_reviews/stars_4half@2x.png" alt="icon img"
+            style="width:120px; display:flex;"><br>
+        <pr>sitejabber</pr>
+    </div>
+
+    <div class="nab">
+        <br><br>
+        <img src="https://st.hzcdn.com/static/houzzPro/logoBanner/NAHBLogo.png" alt="icon img"
+            style="height:30px; justify-content:center;">
+        <h2 style="text-align: center;">Preferred Siftware Provider</h2>
+    </div>
+
+    <DIV style=" font-size: large;">
+        <h3 style="color: rgb(110, 108, 108);text-align: center">TAILORED SOLUTIONS</h3>
+        <h2 style="text-align: center">Built With Your Business in Mind</h2>
+    </DIV>
+
+    <div class="Learnn">
+        <div class="learn">
+            <img src="https://st.hzcdn.com/static/houzz-pro-landing/saw_desk.png" alt="icon img" style="width:80px;">
+            <h4>Builders & Remodelers</h4>
+            <pr>Construction management for index builders and remodelers</pr><br>
+            <a href="" style="color: rgb(33, 99, 205);">Learn more &rightarrow;</a>
+        </div>
+        <div class="learn">
+            <img src="https://st.hzcdn.com/static/houzz-pro-landing/color_swatches.png" alt="icon img"
+                style="width:80px;">
+            <h4>Interior Designers</h4>
+            <pr>See our specialized software for design professionals</pr><br>
+            <a href="" style="color: rgb(33, 99, 205);">Learn more &rightarrow;</a>
+        </div>
+        <div class="learn">
+            <img src="https://st.hzcdn.com/static/houzz-pro-landing/paper_set_square.png" alt="icon img"
+                style="width:80px;">
+            <h4>Architects</h4>
+            <pr>Reach more indexowners looking to hire on the #1 app</pr><br>
+            <a href="" style="color: rgb(33, 99, 205);">Learn more &rightarrow;</a>
+        </div>
+        <div class="learn">
+            <img src="https://st.hzcdn.com/static/houzz-pro-landing/brush_hammer.png" alt="icon img"
+                style="width:80px;">
+            <h4>Specialty Contractors</h4>
+            <pr>
+                Lead management, paymenr solutions and so much more
+            </pr><br>
+            <a href="" style="color: rgb(33, 99, 205);">Learn more &rightarrow;</a>
+        </div>
+
+
+    </div>
+
+    <div>
+        <h4 style="color: rgb(152, 151, 151); font-size: large;">MARKETING SOLUTIONS</h4>
+        <H2>Build Your Brand</H2><br>
+        <div class="Learnn">
+            <div class="brand">
+                <h4>Targeted Local Advertising</h4><br <pr>Reach more indexowners looking to hire on the #1 app</pr>
+                <br><br>
+                <a href="" style="color: rgb(33, 99, 205);">Learn more &rightarrow;</a>
+                <hr>
+            </div>
+
+            <div class="brand">
+                <h4>Efficient Lead Generation</h4>
+                <pr>Target the projects and locations you want most</pr><br><br>
+                <a href="" style="color: rgb(33, 99, 205);">Learn more &rightarrow;</a>
+                <hr>
+            </div>
+
+            <div class="brand">
+                <h4>Powerful Premium Profile</h4>
+                <pr>Showcase your business in the Houzz directory and more</pr><br><br>
+                <a href="" style="color: rgb(33, 99, 205);">Learn more &rightarrow;</a>
+            </div>
+
+            <div class="brand">
+                <h4>Buil Your Brand Online</h4>
+                <pr>Everything you need to make a great first impression</pr><br><br>
+                <a href="" style="color: rgb(33, 99, 205);">Learn more &rightarrow;</a>
+                <hr><br><br><br>
+
+            </div>
+
+        </div>
+        <br>
+        <a href="#"><button style="background-color: #5545cd;width:20%;">Get Started</button></a>
+    </div>
+
+
+</body>
+
+</html>

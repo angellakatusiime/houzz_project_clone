@@ -1,0 +1,676 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <!-- <link rel="stylesheet" href="{% static 'css/cart.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}" />
+    <style>
+      /* messages */
+      .notification {
+        width: 300px;
+        padding: 15px;
+        margin: 20px auto;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        position: absolute;
+        top: 18%;
+        left: 45%;
+      }
+
+      .error {
+        background-color: #f44336;
+        color: white;
+      }
+
+      .success {
+        background-color: #4caf50;
+        color: white;
+      }
+
+      .close {
+        float: right;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    </style>
+</head>
+
+<body>
+    <!--check for message messsage  -->
+      {% if messages %} {% for message in messages %}
+
+      <div
+        {%
+        if
+        message.tags
+        %}
+        class="notification {{message.tags}}"
+        {%
+        endif
+        %}
+      >
+        <span class="close" onclick="this.parentElement.style.display='none'"
+          >&times;</span
+        >
+        <strong> Message: </strong> {{message}}
+      </div>
+      {% endfor %} {% endif %}
+    <div class="headerDiv">
+        <ul>
+            <li><a href="{% url 'index'%}"><img src="https://st.hzcdn.com/res/28195351/pic/houzz_logo.svg?v=28195351"
+                        height="20" /></a></li>
+            <li>Get ideas</li>
+            <li>Find professionals</li>
+            <li>Shop by Department</li>
+
+            <input type="search" placeholder="Search houzz" width="200px" style="border-radius: 10px;">
+
+            <li style="color:rgb(42, 74, 42);"><a href="{% url 'sale' %}">Sale</a></li>
+            <li><a href="{% url 'cart' %}"><img src="{%static 'images\icons8-cart-50.png' %}" alt="icon img"
+                        style="width: 20px;"></a></li>
+            {% comment %} <li><a href="{% url 'signin' %}">Sign In</a></li> {% endcomment %}
+            <li style="color:rgb(79, 79, 248);"><a href="{% url 'join' %}">Join as a Pro</a></li>
+
+        </ul>
+
+    </div>
+    </header>
+    <main>
+        <div class="pop">
+            <li>Popular</li>
+            <li>Furniture</li>
+            <li>Bath</li>
+            <li>Outdoor</li>
+            <li>Rugs & Decor</li>
+            <li>Lighting</li>
+            <li>index Impovement</li>
+            <li>Kitchen & tabletop</li>
+            <li>More </li>
+        </div>
+        <div style="display: flex;justify-content: space-around;width:100vw; align-items: center;">
+            <!-- image div -->
+            <div>
+                <img src="{{image}}" alt="Image not available" style="width: 400px; ">
+            </div>
+            <!-- cart div -->
+            <div class="rt" style="width: 50%;height: 100vh;padding:40px;margin:40px">
+                <h1>{{pdt_name}}</h1>
+                <p>By JONATHAN Y</p>
+                <H3>{{price}}</H3>
+                <p>Ready to ship to the contiguous U.S. in 2-4days</p>
+                <form action="{% url 'add_to_cart' %}" method="POST" name="add to cart">
+                    {% csrf_token %}
+                    <input type="hidden" value="{{price}}" name="price">
+                    <input type="hidden" value="{{pdt_name}}" name="pdt_name">
+                    <input type="hidden" value="{{price}}" name="price">
+                    <input type="text" name="product" value="{{pdt_name}}" id="" readonly>
+                    <select name="quantity" id="">
+                        <option value=1> Qty:1</option>
+                        <option value=2>Qty:2</option>
+                        <option value=3>Qty:3</option>
+                        <option value=4>Qty:4</option>
+                        <option value=5>Qty:5</option>
+                        <option value=6>Qty:6</option>
+                        <option value=7>Qty:7</option>
+                        <option value=8>Qty:8</option>
+                        <option value=9>Qty:9</option>
+                    </select>
+                    <input type="submit" value="Add to Cart" id="" style="cursor: pointer;">
+                    <br>
+                    <hr>
+                </form>
+                <div class="fab">
+                    <h3>Product Features</h3>
+                    <img src="https://www.houzz.com/jpics/20230810153429/machine_washable.svg" alt="icon img">
+                    <label for="">Machine Washable</label>
+
+                    <div class="mat">
+                        <h3>Fabric Material</h3>
+                        <p>Polpropylene</p>
+                        <h3>Weave Type</h3>
+                        <p>Machine-Woven</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="customer">
+            <div class="customerv">
+                <form action="{% url 'sell' %}" method="GET">
+                    {% csrf_token %}
+                    <img src="https://st.hzcdn.com/fimgs/f8a1776b03c0983c_4672-w240-h240-b1-p0--.jpg"
+                        alt="icon img" style="width: 150px"><br>
+                    <p>Linja Solid Centre <br>
+                        Stripe Machine <br>
+                        Washable Area Rug...</p> <br>
+
+
+                    <input type="hidden" value="Linja Solid Centre Stripe Machine Washable Area Rug." name="pdt_name">
+                    <input type="hidden" value="80" name="price">
+                    <input type="hidden" value="https://st.hzcdn.com/fimgs/f8a1776b03c0983c_4672-w240-h240-b1-p0--.jpg"
+                        name="image">
+                    <input style="background-color: #085408; color:white; font-size: small; cursor:pointer;"
+                        type="submit" value="SALE"> <br>
+                    <p>80 <span style="text-decoration: line-through; color: red;">101</span></p>
+
+                </form>
+            </div>
+            <div class="customerv">
+                <form action="{% url 'sell' %}" method="GET">
+                    {% csrf_token %}
+                    <img src="https://st.hzcdn.com/fimgs/5df1f4dd04220c2c_4659-w240-h240-b1-p0--.jpg"
+                        alt="icon img"><br>
+                    <p>Mohawk Strata<br>
+                        Delerus Multi, 5'x 8'</p> <br>
+
+
+                    <input type="hidden" value="Moroccan HYPE Boho Vintage" name="pdt_name">
+                    <input type="hidden" value="97" name="price">
+                    <input type="hidden" value="https://st.hzcdn.com/fimgs/5df1f4dd04220c2c_4659-w240-h240-b1-p0--.jpg"
+                        name="image">
+                    <input style="background-color: #085408; color:white; font-size: small; cursor: pointer;"
+                        type="submit" value="SALE"> <br>
+                    <p>97 <span style="text-decoration: line-through; color: red;">231</span></p>
+
+                </form>
+            </div>
+            <div class="customerv">
+                <form action="{% url 'sell' %}" method="GET">
+                    {% csrf_token %}
+                    <img src="https://st.hzcdn.com/fimgs/b941994e0c75b301_5469-w240-h240-b1-p0--.jpg" alt="icon img"
+                        style="width:150px;"><br>
+                    <p>Demie Minimalist<br>
+                        Graphic Circle <br>
+                        Machine-washable...</p> <br>
+
+
+                    <input type="hidden" value="80" name="price">
+                    <input type="hidden" value="Demie Minnimalist" name="pdt_name">
+                    <input type="hidden" value="https://st.hzcdn.com/fimgs/b941994e0c75b301_5469-w240-h240-b1-p0--.jpg"
+                        name="image">
+                    <input style="background-color: #085408; color:white; font-size: small; cursor:pointer;"
+                        type="submit" value="SALE"> <br>
+                    <p>80 <span style="text-decoration: line-through; color: red;">101</span></p>
+
+                </form>
+            </div>
+            <div class="customerv">
+                <form action="{% url 'sell' %}" method="GET">
+                    {% csrf_token %}
+                    <img src="https://st.hzcdn.com/fimgs/bf618a5803c09870_4577-w240-h240-b1-p0--.jpg" alt="icon img"
+                        style="width:150px;"><br>
+                    <p>Stripe machine <br>
+                        washable area rug...</p> <br>
+
+
+                    <input type="hidden" value="32" name="price">
+                    <input type="hidden" value="Tarracorta, SKy Printed Polyster" name="pdt_name">
+                    <input type="hidden" value="https://st.hzcdn.com/fimgs/bf618a5803c09870_4577-w240-h240-b1-p0--.jpg"
+                        name="image">
+                    <input style="background-color: #085408; color:white; font-size: small; cursor: pointer;"
+                        type="submit" value="SALE"> <br>
+                    <p>32 <span style="text-decoration: line-through; color: red;">50</span></p>
+
+                </form>
+            </div>
+            <div class="customerv">
+                <form action="{% url 'sell' %}" method="GET">
+                    {% csrf_token %}
+                    <img src="https://st.hzcdn.com/fimgs/96810c7b0e963354_5439-w240-h240-b1-p0--.jpg" alt="icon img"
+                        style="width:150px;"><br>
+                    <p>nuLOOM Thigpen<br>
+                        Striped <br>
+                        Contemporary Area...</p>
+
+
+                    <input type="hidden" value="73" name="price">
+                    <input type="hidden" value="nuLOOM Thigpen" name="pdt_name">
+                    <input type="hidden" value="https://st.hzcdn.com/fimgs/96810c7b0e963354_5439-w240-h240-b1-p0--.jpg"
+                        name="image">
+                    <input style="background-color: #085408; color:white; font-size: small; cursor: pointer;"
+                        type="submit" value="SALE"> <br>
+                    <p>73 <span style="text-decoration: line-through; color: red;">122</span></p>
+
+                </form>
+            </div>
+
+        </div>
+
+
+        <h3> Customers also Viewed</h3>
+        <div class="customer">
+            <div class="customerv">
+                <form action="{% url 'sell' %}" method="GET">
+                    {% csrf_token %}
+                    <img src="https://st.hzcdn.com/fimgs/96810c7b0e963354_5439-w240-h240-b1-p0--.jpg" alt="icon img"
+                        style="width:140px;"><br>
+                    <p>nuLOOM Dannie<br>
+                        ModernGeometric <br>
+                        Machine washable...<br></p>
+                    Contemporary Area...</p>
+
+
+                    <input type="hidden" value="73" name="price">
+                    <input type="hidden" value="nuLOOM Dannie" name="pdt_name">
+                    <input type="hidden" value="https://st.hzcdn.com/fimgs/96810c7b0e963354_5439-w240-h240-b1-p0--.jpg"
+                        name="image">
+                    <input style="background-color: #085408; color:white; font-size: small; cursor: pointer;"
+                        type="submit" value="SALE"> <br>
+                    <p>73 <span style="text-decoration: line-through; color: red;">122</span></p>
+
+                </form>
+            </div>
+            <div class="customerv">
+                <form action="{% url 'sell' %}" method="GET">
+                    {% csrf_token %}
+                    <img src="https://st.hzcdn.com/fimgs/03a10fb40f987322_6070-w240-h240-b1-p0--.jpg"alt="icon img" style="width:150px;"><br>
+                    <p>nuLOOM Dannie<br>
+                        ModernGeometric <br>
+                        Machine washable...</p>
+
+                    <input type="hidden" value="68" name="price">
+                    <input type="hidden" value="Iris traditional rug" name="pdt_name">
+                    <input type="hidden" value="https://st.hzcdn.com/fimgs/03a10fb40f987322_6070-w240-h240-b1-p0--.jpg" name="image">
+                    <input style="background-color: #085408; color:white; font-size: small; cursor: pointer;"
+                        type="submit" value="SALE"> <br>
+                    <p>68 <span style="text-decoration: line-through; color: red;">160</span></p>
+
+                </form>
+            </div>
+            <div class="customerv">
+                <form action="{% url 'sell' %}" method="GET">
+                    {% csrf_token %}
+                    <img src="https://st.hzcdn.com/fimgs/b111f31503483659_1008-w240-h240-b1-p0--.jpg" alt="icon img"
+                        style="width:150px;"> <br>
+                    <p>Elaziz Bohemian<br>
+                        Global Gray, Black <br>
+                        Area Rug...</p>
+                    <input type="hidden" value="73" name="price">
+                    <input type="hidden" value="Elaziz Bohemian" name="pdt_name">
+                    <input type="hidden" value="https://st.hzcdn.com/fimgs/b111f31503483659_1008-w240-h240-b1-p0--.jpg"name="image">
+                   
+                        
+                    <input style="background-color: #085408; color:white; font-size: small; cursor: pointer;"
+                        type="submit" value="SALE"> <br>
+                    <p>73 <span style="text-decoration: line-through; color: red;">122</span></p>
+
+                </form>
+            </div>
+
+            <div class="customerv">
+                <form action="{% url 'sell' %}" method="GET">
+                    {% csrf_token %}
+                    <img src="https://st.hzcdn.com/fimgs/7f111be60376afb5_2894-w240-h240-b1-p0--.jpg" alt="icon img"
+                        style="width:140px;"> <br>
+                    <p>Kesan Vintage<br>
+                        Medallion Charcoal <br>
+                        Grey/Ivory...</p>
+
+
+                    <input type="hidden" value="73" name="price">
+                    <input type="hidden" value="Kesan Vintage" name="pdt_name">
+                    <input type="hidden" value="https://st.hzcdn.com/fimgs/7f111be60376afb5_2894-w240-h240-b1-p0--.jpg"
+                        name="image">
+                    <input style="background-color: #085408; color:white; font-size: small; cursor: pointer;"
+                        type="submit" value="SALE"> <br>
+                    <p>73 <span style="text-decoration: line-through; color: red;">122</span></p>
+
+                </form>
+            </div>
+
+            <div class="customerv">
+                <form action="{% url 'sell' %}" method="GET">
+                    {% csrf_token %}
+                    <img src="https://st.hzcdn.com/fimgs/062107c3003ec537_5613-w240-h240-b1-p0--.jpg" alt="icon img"
+                        style="width:150px;"> <br>
+                    <p>Machine Washable<br>
+                        Avin Oriental Green <br>
+                        and blue runner Ru...</p>
+
+                    <input type="hidden" value="73" name="price">
+                    <input type="hidden" value="Machine washable" name="pdt_name">
+                    <input type="hidden" value="https://st.hzcdn.com/fimgs/062107c3003ec537_5613-w240-h240-b1-p0--.jpg"
+                        name="image">
+                    <input style="background-color: #085408; color:white; font-size: small; cursor:pointer;"
+                        type="submit" value="SALE"> <br>
+                    <p>73 <span style="text-decoration: line-through; color: red;">122</span></p>
+
+                </form>
+                <br>
+            </div>
+        </div>
+
+            <h3>Consoles</h3>
+            <div class="customer">
+                <div class="customerv">
+
+                    <form action="{% url 'sell' %}" method="GET">
+                        {% csrf_token %}
+                        <img src="https://st.hzcdn.com/fimgs/4b81420b03f91a0a_3904-w240-h240-b1-p0--.jpg" alt="icon img"
+                            style="width:150px;"> <br>
+                        <p>Bosque bath vanity,<br>
+                            Driftwood, 42" Single <br>
+                            sink, undermount,...</p>
+
+                        <input type="hidden" value="1431" name="price">
+                        <input type="hidden" value="Bosque bath" name="pdt_name">
+                        <input type="hidden"
+                            value="https://st.hzcdn.com/fimgs/4b81420b03f91a0a_3904-w240-h240-b1-p0--.jpg" name="image">
+                        <input style="background-color: #085408; color:white; font-size: small; cursor:pointer;"
+                            type="submit" value="SALE"> <br>
+                        <p>1431 <span style="text-decoration: line-through; color: red;">1730</span></p>
+
+                    </form>
+                </div>
+                <div class="customerv">
+                    <form action="{% url 'sell' %}" method="GET">
+                        {% csrf_token %}
+                        <img src="https://st.hzcdn.com/fimgs/7531998204e6540b_6687-w240-h240-b1-p0--.jpg" alt="icon img"
+                            style="width:150px;"> <br>
+                        <p>Bahia bath vanity,<br>
+                            Oak,84" Matte Black<br>
+                            Hardware, Double...</p>
+
+                        <input type="hidden" value="2688" name="price">
+                        <input type="hidden" value="Bahia bath" name="pdt_name">
+                        <input type="hidden"
+                            value="https://st.hzcdn.com/fimgs/7531998204e6540b_6687-w240-h240-b1-p0--.jpg" name="image">
+                        <input style="background-color: #085408; color:white; font-size: small; cursor:pointer;"
+                            type="submit" value="SALE"> <br>
+                        <p>2688 <span style="text-decoration: line-through; color: red;"></span></p>
+
+                    </form>
+                </div>
+                <div class="customerv">
+                    <form action="{% url 'sell' %}" method="GET">
+                        {% csrf_token %}
+                        <img src="	https://st.hzcdn.com/fimgs/3f413fe6034728d7_3760-w240-h240-b1-p0--.jpg"
+                            alt="icon img" style="width:150px;"> <br>
+                        <p>Bosque bath vanity,<br>
+                            Driftwood, 36" Single <br>
+                            sink,Farmhouse,...</p>
+
+                        <input type="hidden" value="1166" name="price">
+                        <input type="hidden" value="Bosque bath" name="pdt_name">
+                        <input type="hidden"
+                            value="https://st.hzcdn.com/fimgs/3f413fe6034728d7_3760-w240-h240-b1-p0--.jpg" name="image">
+                        <input style="background-color: #085408; color:white; font-size: small; cursor:pointer;"
+                            type="submit" value="SALE"> <br>
+                        <p>1166 <span style="text-decoration: line-through; color: red;"></span></p>
+
+                    </form>
+                </div>
+                <div class="customerv">
+                    <form action="{% url 'sell' %}" method="GET">
+                        {% csrf_token %}
+                        <img src="https://st.hzcdn.com/fimgs/bfd11a6103c8860f_3421-w240-h240-b1-p0--.jpg" alt="icon img"
+                            style="width:150px;"> <br>
+                        <p>Eleanor bath vanity,<br>
+                            Paris Gray,60" <br>
+                            Double sink,...</p>
+
+                        <input type="hidden" value="1599" name="price">
+                        <input type="hidden" value="Eleanor bathroom" name="pdt_name">
+                        <input type="hidden"
+                            value="https://st.hzcdn.com/fimgs/bfd11a6103c8860f_3421-w240-h240-b1-p0--.jpg" name="image">
+                        <input style="background-color: #085408; color:white; font-size: small; cursor:pointer;"
+                            type="submit" value="SALE"> <br>
+                        <p>1599 <span style="text-decoration: line-through; color: red;">2969</span></p>
+
+                    </form>
+                </div>
+                <div class="customerv">
+                    <form action="{% url 'sell' %}" method="GET">
+                        {% csrf_token %}
+                        <img src="https://st.hzcdn.com/fimgs/abd13d5d04765ce7_5794-w240-h240-b1-p0--.jpg" alt="icon img"
+                            style="width:150px;"> <br>
+                        <p>Sequoia 30" Single,<br>
+                            Bathroom Vanity in <br>
+                            Weathered Fir with...</p>
+
+                        <input type="hidden" value="1002" name="price">
+                        <input type="hidden" value="Sequoia Bathroom vanity" name="pdt_name">
+                        <input type="hidden"
+                            value="https://st.hzcdn.com/fimgs/abd13d5d04765ce7_5794-w240-h240-b1-p0--.jpg" name="image">
+                        <input style="background-color: #085408; color:white; font-size: small; cursor:pointer;"
+                            type="submit" value="SALE"> <br>
+                        <p>1002 <span style="text-decoration: line-through; color: red;"></span></p>
+
+                    </form>
+                </div>
+                <div class="customerv">
+                    <form action="{% url 'sell' %}" method="GET">
+                        {% csrf_token %}
+                        <img src="https://st.hzcdn.com/fimgs/91515f2c04484986_1358-w240-h240-b1-p0--.jpg" alt="icon img"
+                            style="width:150px;"> <br>
+                        <p>Camille 72" Double<br>
+                            Bathroom Vanity in <br>
+                            Driftwood Oak with...</p>
+
+                        <input type="hidden" value="2517" name="price">
+                        <input type="hidden" value="CamilleBathroom vanity" name="pdt_name">
+                        <input type="hidden"
+                            value="https://st.hzcdn.com/fimgs/91515f2c04484986_1358-w240-h240-b1-p0--.jpg" name="image">
+                        <input style="background-color: #085408; color:white; font-size: small; cursor:pointer;"
+                            type="submit" value="SALE"> <br>
+                        <p>2517 <span style="text-decoration: line-through; color: red;">4635</span></p>
+
+                    </form>
+                </div>
+            </div>
+            <div class="customer">
+                <div class="customerv">
+                    <form action="{% url 'sell' %}" method="GET">
+                        {% csrf_token %}
+                        <img src="https://st.hzcdn.com/fimgs/9c015aed04c415b1_1389-w240-h240-b1-p0--.jpg" alt="icon img"
+                            style="width:150px;"> <br>
+                        <p>Tapestry Counter <br> Stool </p>
+
+                        <input type="hidden" value="799" name="price">
+                        <input type="hidden" value="Tapestry Counter Stool" name="pdt_name">
+                        <input type="hidden"
+                            value="https://st.hzcdn.com/fimgs/9c015aed04c415b1_1389-w240-h240-b1-p0--.jpg" name="image">
+                        <input style="background-color: #085408; color:white; font-size: small; cursor:pointer;"
+                            type="submit" value="SALE"> <br>
+                        <p>799 <span style="text-decoration: line-through; color: red;">1598</span></p>
+
+                    </form>
+                </div>
+                <div class="customerv">
+                    <form action="{% url 'sell' %}" method="GET">
+                        {% csrf_token %}
+                        <img src="	https://st.hzcdn.com/fimgs/62712bab020bf1f1_1162-w240-h240-b1-p0--.jpg"
+                            alt="icon img" style="width:150px;"> <br>
+                        <p>Madison Park Emmet <br>
+                            25.75" swivel <br>
+                            Counter Stool, Light... </p>
+
+                        <input type="hidden" value="171" name="price">
+                        <input type="hidden" value="Madison Park Counter stool" name="pdt_name">
+                        <input type="hidden"
+                            value="https://st.hzcdn.com/fimgs/62712bab020bf1f1_1162-w240-h240-b1-p0--.jpg" name="image">
+                        <input style="background-color: #085408; color:white; font-size: small; cursor:pointer;"
+                            type="submit" value="SALE"> <br>
+                        <p>171 <span style="text-decoration: line-through; color: red;">323</span></p>
+
+                    </form>
+                </div>
+                <div class="customerv">
+                    <form action="{% url 'sell' %}" method="GET">
+                        {% csrf_token %}
+                        <img src="https://st.hzcdn.com/fimgs/06314099020aab7c_4413-w240-h240-b1-p0--.jpg" alt="icon img"
+                            style="width:150px;"> <br>
+                        <p>Westman Fabric<br>
+                            Upholstered Swivel <br>
+                            Seat Bar Stools, set </p>
+
+                        <input type="hidden" value="279" name="price">
+                        <input type="hidden" value="Westman Fabric Stool" name="pdt_name">
+                        <input type="hidden"
+                            value="https://st.hzcdn.com/fimgs/06314099020aab7c_4413-w240-h240-b1-p0--.jpg" name="image">
+                        <input style="background-color: #085408; color:white; font-size: small; cursor:pointer;"
+                            type="submit" value="SALE"> <br>
+                        <p>279 <span style="text-decoration: line-through; color: red;">348</span></p>
+
+                    </form>
+                </div>
+                <div class="customerv">
+                    <form action="{% url 'sell' %}" method="GET">
+                        {% csrf_token %}
+                        <img src="https://st.hzcdn.com/fimgs/f241d48c00b80b97_3452-w240-h240-b1-p0--.jpg" alt="icon img"
+                            style="width:150px;"> <br>
+                        <p>Daxton Faux Leather<br>
+                            and wood Bar stool,<br>
+                            Gray and Black, 26" </p>
+
+                        <input type="hidden" value="183" name="price">
+                        <input type="hidden" value="Daxton Faux Leather stool" name="pdt_name">
+                        <input type="hidden"
+                            value="https://st.hzcdn.com/fimgs/f241d48c00b80b97_3452-w240-h240-b1-p0--.jpg" name="image">
+                        <input style="background-color: #085408; color:white; font-size: small; cursor:pointer;"
+                            type="submit" value="SALE"> <br>
+                        <p>183<span style="text-decoration: line-through; color: red;">599</span></p>
+
+                    </form>
+                </div>
+                <div class="customerv">
+                    <form action="{% url 'sell' %}" method="GET">
+                        {% csrf_token %}
+                        <img src="https://st.hzcdn.com/fimgs/ee513ed503299d8e_0685-w240-h240-b1-p0--.jpg" alt="icon img"
+                            style="width:150px;"> <br>
+                        <p>Rombass Saddle sea<br>
+                            stool, Natural, 30"</p>
+
+                        <input type="hidden" value="82" name="price">
+                        <input type="hidden" value="Rombass Saddle sea stool" name="pdt_name">
+                        <input type="hidden"
+                            value="https://st.hzcdn.com/fimgs/ee513ed503299d8e_0685-w240-h240-b1-p0--.jpg" name="image">
+                        <input style="background-color: #085408; color:white; font-size: small; cursor:pointer;"
+                            type="submit" value="SALE"> <br>
+                        <p>82<span style="text-decoration: line-through; color: red;"></span></p>
+
+                    </form>
+                </div>
+                <div class="customerv">
+                    <form action="{% url 'sell' %}" method="GET">
+                        {% csrf_token %}
+                        <img src="https://st.hzcdn.com/fimgs/5e115423039999c5_3155-w240-h240-b1-p0--.jpg" alt="icon img"
+                            style="width:150px;"> <br>
+                        <p>GDF studio molle<br>
+                            Mid century design <br>
+                            Counter stools
+                        </p>
+
+                        <input type="hidden" value="136" name="price">
+                        <input type="hidden" value="GDF studio molle stool" name="pdt_name">
+                        <input type="hidden"
+                            value="https://st.hzcdn.com/fimgs/5e115423039999c5_3155-w240-h240-b1-p0--.jpg" name="image">
+                        <input style="background-color: #085408; color:white; font-size: small; cursor:pointer;"
+                            type="submit" value="SALE"> <br>
+                        <p>136<span style="text-decoration: line-through; color: red;">170</span></p>
+
+                    </form>
+                </div>
+            </div>
+            <br> <br>
+            <div class="decor">
+                <a href="sale.html" style="cursor: pointer;"><img
+                        src="https://st.hzcdn.com/static/shop-houzz/index-decor/trending_banner_mweb.png"
+                        alt="icon img"></a>
+            </div>
+        </div>
+
+
+    </main>
+
+    <footer>
+        <ul class="footer-elements">
+            <li>
+                <div class="footer-item">
+                    <h2 style="font-weight: bolder;">houzz</h2>
+                    <select>
+                        <option value="United States">United States</option>
+                        <option value="United Kingdom">United Kingdom</option>
+                        <option value="Australia">Australia</option>
+                        <option value="France">France</option>
+                        <option value="Italy">Italy</option>
+                        <option value="Espana">Espana</option>
+                        <option value="Danmark">Danmark</option>
+                        <option value="Ireland">Ireland</option>
+                    </select>
+
+                    <h5>@2023 Houzz Inc.</h5>
+                </div>
+
+            </li>
+            <li>
+                <div class="footer-items">
+                    <h5><b>COMPANY</b></h5>
+                    <ul>
+                        <a href="https://www.houzz.com/aboutUs" style="color:black">
+                            <li>About Houzz</li>
+                        </a><br>
+                        <li>Houzz Credit Cards</li><br>
+                        <li>Gift Cards</li>
+                        <li>Careers</li>
+                        <li>pivacy & Notice</li>
+                        <li>Terms</li>
+                        <li>Cookie pivacy</li>
+                        <li>Mobile Apps</li>
+                        <li>Copyright & Trademark</li>
+                    </ul>
+                </div>
+
+            </li>
+            <li>
+                <div class="footer-items">
+                    <h5><b>BUSINESS SERVICES</b></h5>
+                    <ul>
+                        <li>For pofessionals</li>
+                        <li>Remodeling Software</li>
+                        <li>floor Planner</li>
+                        <li>Contactor Leads
+                        <li>
+                        <li>for Brands</li>
+                        <li>Trade pogram</li>
+                        <li>Buttons & Badges</li>
+                    </ul>
+                </div>
+
+            </li>
+            <li>
+                <div class="footer-items">
+                    <h5><b>GET HELP</b></h5>
+                    <ul>
+                        <li>Your orders</li>
+                        <li>Shipping& Delivery</li>
+                        <li>Return Policy</li>
+                        <li>Houzz Canada</li>
+                        <li>Review pofessionals</li>
+                        <li>Suggested pofessionals</li>
+                        <li>Accessibility</li>
+                        <li>Houzz Support</li>
+                        <li>Contact</li>
+                        <li>Sign In</li>
+                    </ul>
+                </div>
+
+            </li>
+
+
+        </ul>
+
+
+    </footer>
+
+</body>
+
+</html>

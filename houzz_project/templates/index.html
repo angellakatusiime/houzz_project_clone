@@ -1,0 +1,443 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>houzz | index page</title>
+    <link rel="stylesheet" href="{% static 'css/houzz.css' %}" />
+  </head>
+
+  <body>
+    <header>
+      <div class="headerDiv">
+        <ul>
+          <li>
+            <a href="{% url 'index' %}"
+              ><img
+                src="https://st.hzcdn.com/res/28195351/pic/houzz_logo.svg?v=28195351"
+                height="20"
+            /></a>
+          </li>
+          <li class="get-ideas">Get ideas</li>
+          <li>Find professionals</li>
+          <li>Shop by Department</li>
+
+          <input
+            type="search"
+            placeholder="Search houzz"
+            style="border-radius: 10px"
+          />
+          <div class="side">
+            <li style="color: rgb(42, 74, 42)">
+              <a href="{% url 'sale' %}">Sale</a>
+            </li>
+            <li>
+              <a href="{% url 'cart' %}"
+                ><img
+                  src="{%static 'images\icons8-cart-50.png' %}"
+                  alt="icon img"
+                  style="width: 20px"
+              /></a>
+            </li>
+            <li style="color: rgb(79, 79, 248)">
+              <a href="#join_as_pro">Join as a Pro</a>
+            </li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+          </div>
+        </ul>
+      </div>
+    </header>
+    <main>
+      <div class="side2" style="height: 118vh" id="join_as_pro">
+        <h1>houzz PRO</h1>
+        <h1>Join Millions Of index Professionals</h1>
+        <h4>Get all-in-one tool for marketing, CRM and project management</h4>
+        <form method="GET" action="{% url 'join'%}">
+          <input
+            type="email"
+            name="join_using_email"
+            value="ang@gmail.com"
+            id=""
+            placeholder="Email"
+            required
+          />
+          <br />
+
+          <input
+            type="submit"
+            name=""
+            id=""
+            value="Join for Free"
+            style="
+              background-color: #6161a4;
+              color: #fefefe;
+              border-radius: 3px;
+              border: none;
+              cursor: pointer;
+            "
+          />
+        </form>
+        <p style="font-size: 12px">
+          By signing up, signing in or continuing, I agree to Houzz's
+          <a href="https://www.houzz.com/termsOfUse">Terms of Use</a> and
+          <a href="https://www.houzz.com/privacyPolicy">Privacy Policy.</a>
+        </p>
+      </div>
+
+      <div class="imageDiv">
+        <div class="main-content">
+          <img
+            src="D:\houzz dj\houzz\houzz_project\ho-bg.jpg"
+            alt="iconimage"
+          />
+          <div class="trial">
+            <h2>The Best Place to Find Professionals</h2>
+            <br />
+            <pr
+              >Thousands of indexowners connect with the right pro every week for
+              their remodeling projects. Ready to find yours?</pr
+            >
+          </div>
+
+          <div class="form1">
+            <form>
+              <input
+                type="search"
+                name="search"
+                placeholder="What service do you need?"
+              />
+              <input
+                type="submit"
+                value="Get Started"
+                style="background-color: rgb(34, 62, 34)"
+              />
+            </form>
+          </div>
+        </div>
+      </div>
+      <h1 style="text-align: center">Here's what you can do on Houzz</h1>
+      <!--image content  -->
+      <div class="main-list">
+        <div class="itemDiv">
+          <img
+            src="https://st.hzcdn.com/static/indexpage/visitorhp_icon_photos%402x.png"
+            alt="iconimage"
+            width="50"
+          />
+          <label for="">Discover Design Images</label>
+          <!-- <a href="design_ideas.html">Discover Design Ideas</a> -->
+        </div>
+        <div class="itemDiv">
+          <img
+            src="https://st.hzcdn.com/static/indexpage/visitorhp_icon_shop%402x.png"
+            alt="iconimage"
+            width="50"
+          />
+          <label for="">Shop Products</label>
+        </div>
+        <div class="itemDiv">
+          <img
+            src="https://st.hzcdn.com/static/indexpage/visitorhp_icon_professionals%402x.png"
+            alt="iconimage"
+            width="50"
+          />
+          <label for="">Browse Pros</label>
+        </div>
+        <div class="itemDiv">
+          <img
+            src="https://st.hzcdn.com/static/indexpage/visitorhp_icon_pro_match%402x.png"
+            alt="iconimage"
+            width="50"
+          />
+          <label for="">Suggest Pros for Me</label>
+        </div>
+      </div>
+
+      <div>
+        <h2>Shop by Department</h2>
+        <div class="main-list">
+          <div class="itemDiv2" width="50%">
+            <img
+              src="https://st.hzcdn.com/fimgs/e4f13743049db96a_8250-w350-h350-b0-p0--.jpg"
+              alt="iconimage"
+              width="130px"
+            />
+          </div>
+
+          <div class="itemDiv2" width="50%">
+            <img
+              src="https://st.hzcdn.com/fimgs/fa71523e0e866093_4985-w186-h135-b1-p10--.jpg"
+              alt="iconimage"
+              width="160px"
+            />
+            <br /><br />
+            <pr>Furniture</pr>
+          </div>
+
+          <div class="itemDiv2" width="50%">
+            <img
+              src="https://st.hzcdn.com/fimgs/6e41c6a40b27ca42_8520-w186-h135-b1-p10--.jpg"
+              alt="iconimage"
+              width="160px"
+            />
+            <br /><br />
+            <label for="">Outdoor</label>
+          </div>
+
+          <div class="itemDiv2">
+            <img
+              src="https://st.hzcdn.com/fimgs/77c190e3014e9b6b_1826-w186-h135-b1-p10--.jpg"
+              alt="iconimage"
+              width="160px"
+            />
+            <br /><br />
+            <label for="">Bathroom</label>
+          </div>
+
+          <div class="itemDiv2">
+            <img
+              src="https://st.hzcdn.com/fimgs/3ea18d5c0f907a76_1832-w186-h135-b1-p10--.jpg"
+              alt="iconimage"
+              width="160px"
+            />
+            <br /><br />
+            <label for="">Kitchen & Dinning</label>
+          </div>
+
+          <div class="itemDiv2">
+            <img
+              src="https://st.hzcdn.com/fimgs/219136950e828eee_1337-w186-h135-b1-p10--.jpg"
+              alt="iconimage"
+              width="160px"
+            />
+            <br /><br />
+            <label for="">Living Room</label>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h2>Browse Professionals near you</h2>
+        <div class="main-list">
+          <div class="itemDiv3">
+            <img
+              class="imgdiv1"
+              src="https://st.hzcdn.com/fimgs/d9a130f907509cf7_0862-w186-h135-b0-p0---.jpg"
+              alt="iconimage"
+            />
+            <br /><br />
+            <label for="">Architects & Building Designers</label>
+          </div>
+          <div class="itemDiv3">
+            <img
+              class="imgdiv1"
+              src="https://st.hzcdn.com/fimgs/0161bc8507585cb7_8701-w186-h135-b0-p0---.jpg"
+              alt="iconimage"
+            />
+            <br /><br />
+            <label for="">Build-Design Firms</label>
+          </div>
+          <div class="itemDiv3">
+            <img
+              class="imgdiv1"
+              src="https://st.hzcdn.com/fimgs/8ad1a65407509cfc_0870-w186-h135-b0-p0---.jpg"
+              alt="iconimage"
+            />
+            <br /><br />
+            <label for="">General Contractors</label>
+          </div>
+          <div class="itemDiv3">
+            <img
+              class="imgdiv1"
+              src="https://st.hzcdn.com/fimgs/0721a64207509cfe_0870-w186-h135-b0-p0---.jpg"
+              alt="iconimage"
+            />
+            <br /><br />
+            <label for="">index Builders</label>
+          </div>
+          <div class="itemDiv3">
+            <img
+              class="imgdiv1"
+              src="https://st.hzcdn.com/fimgs/f6f13d6007509cff_0868-w186-h135-b0-p0---.jpg"
+              alt="iconimage"
+            />
+            <br /><br />
+            <label for="">Interior Designers & Decorators</label>
+          </div>
+          <div class="itemDiv3">
+            <img
+              class="imgdiv1"
+              src="https://st.hzcdn.com/fimgs/7cc138b807509d00_0870-w186-h135-b0-p0---.jpg"
+              alt="iconimage"
+            />
+            <br /><br />
+            <label for="">Kitchen Designers & Bathroom</label>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h2>Contact a Local Professional</h2>
+        <div class="main-list">
+          <div class="itemDiv4">
+            <img
+              src="https://st.hzcdn.com/fimgs/2a0140f308f8fdee_2947-w186-h135-b0-p0---.jpg"
+              alt="iconimage"
+            />
+            <br />
+            <p>Bathroom remodeling</p>
+          </div>
+          <div class="itemDiv4">
+            <img
+              src="https://st.hzcdn.com/fimgs/2ed1254808f8fdcc_2914-w186-h135-b0-p0---.jpg"
+              alt="iconimage"
+            />
+            <br />
+            <p>index Remodeling</p>
+          </div>
+          <div class="itemDiv4">
+            <img
+              src="https://st.hzcdn.com/fimgs/ba015ce408f8fdb9_2895-w186-h135-b0-p0---.jpg"
+              alt="iconimage"
+            />
+            <br />
+            <p>Kitchen Remodeling</p>
+          </div>
+          <div class="itemDiv4">
+            <img
+              src="https://st.hzcdn.com/fimgs/pictures/exteriors/unti…4120660647b6d0_7193-1-7a19646-w186-h135-b0-p0.jpg"
+              alt="iconimage"
+            />
+            <br />
+            <p>General Contracting</p>
+          </div>
+          <div class="itemDiv4">
+            <img
+              src="https://st.hzcdn.com/fimgs/7361d44608093f2b_1016-w186-h135-b0-p0---.jpg"
+              alt="iconimage"
+            />
+            <br />
+            <p>New index construction</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h2>Browse Ideas by Room</h2>
+        <div class="main-list">
+          <div class="itemDiv5">
+            <img
+              src="https://st.hzcdn.com/fimgs/pictures/kitchens/resid…81f4ac004a713c_5631-1-61dd366-w186-h135-b0-p0.jpg"
+              alt="iconimage"
+            />
+            <br />
+            <p>Kitchen</p>
+          </div>
+          <div class="itemDiv5">
+            <img
+              src="https://st.hzcdn.com/fimgs/pictures/bathrooms/yorb…919482009c58e2_2387-1-25af68e-w186-h135-b0-p0.jpg"
+              alt="iconimage"
+            />
+            <br />
+            <p>Bathroom</p>
+          </div>
+          <div class="itemDiv5">
+            <img
+              src="https://st.hzcdn.com/fimgs/pictures/bedrooms/2011-…2130d20e27066e_5182-1-ca31d8a-w186-h135-b0-p0.jpg"
+              alt="iconimage"
+            />
+            <br />
+            <p>Bedroom</p>
+          </div>
+          <div class="itemDiv5">
+            <img
+              src="https://st.hzcdn.com/fimgs/pictures/living-rooms/s…4195010e272f91_3456-1-e6951ab-w186-h135-b0-p0.jpg"
+              alt="iconimage"
+            />
+            <br />
+            <p>Living Room</p>
+          </div>
+          <div class="itemDiv5">
+            <img
+              src="https://st.hzcdn.com/fimgs/pictures/pools/outdoor-…9119e90f2758df_1665-1-894ac55-w186-h135-b0-p0.jpg"
+              alt="iconimage"
+            />
+            <br />
+            <p>Outdoor</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <ul class="footer-elements">
+        <li>
+          <div class="footer-item">
+            <h2 style="font-weight: bolder">houzz</h2>
+            <select>
+              <option value="United States">United States</option>
+              <option value="United Kingdom">United Kingdom</option>
+              <option value="Australia">Australia</option>
+              <option value="France">France</option>
+              <option value="Italy">Italy</option>
+              <option value="Espana">Espana</option>
+              <option value="Danmark">Danmark</option>
+              <option value="Ireland">Ireland</option>
+            </select>
+
+            <h5>@2023 Houzz Inc.</h5>
+          </div>
+        </li>
+        <li>
+          <div class="footer-items">
+            <h5><b>COMPANY</b></h5>
+            <ul>
+              <li>About Houzz</li>
+              <br />
+              <li>Houzz Credit Cards</li>
+              <br />
+              <li>Gift Cards</li>
+              <li>Careers</li>
+              <li>Privacy & Notice</li>
+              <li>Terms</li>
+              <li>Cookie Privacy</li>
+              <li>Mobile Apps</li>
+              <li>Copyright & Trademark</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="footer-items">
+            <h5><b>BUSINESS SERVICES</b></h5>
+            <ul>
+              <li>For professionals</li>
+              <li>Remodeling Software</li>
+              <li>floor Planner</li>
+              <li>Contactor Leads</li>
+              <li></li>
+              <li>for Brands</li>
+              <li>Trade program</li>
+              <li>Buttons & Badges</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="footer-items">
+            <h5><b>GET HELP</b></h5>
+            <ul>
+              <li>Your orders</li>
+              <li>Shipping& Delivery</li>
+              <li>Return Policy</li>
+              <li>Houzz Canada</li>
+              <li>Review Professionals</li>
+              <li>Suggested Professionals</li>
+              <li>Accessibility</li>
+              <li>Houzz Support</li>
+              <li>Contact</li>
+              <li>Sign In</li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </footer>
+  </body>
+</html>

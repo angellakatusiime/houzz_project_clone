@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign up</title>
+    <link rel="stylesheet" href="{% static 'css/signin.css' %}" />
+  </head>
+
+  <body>
+    <header>
+      <a href="{% url 'index'%}"
+        ><img
+          src="https://st.hzcdn.com/res/28195351/pic/houzz_logo.svg?v=28195351"
+          height="40"
+          width="100"
+      /></a>
+      <hr style="opacity: 0.6" />
+      <!-- <h2>Welcome to Houzz</h2> -->
+    </header>
+    <main>
+      <!-- form -->
+      <div class="main-div">
+        <div class="left-div">
+          <form
+            class="signin_form"
+            action="{% url 'register_user' %}"
+            method="POST"
+          >
+            {% csrf_token %}
+            <h2 for="">Register an account</h2>
+            <!-- email -->
+            <br /><br />
+            <label for="email">Username or Email</label>
+            <input
+              type="email"
+              name="email"
+              id=""
+              class="text-field"
+              required
+            />
+            <!-- password -->
+            <br />
+            <label for="password">Password</label><br />
+            <input
+              type="password"
+              name="password"
+              id=""
+              class="text-field"
+              required
+            />
+
+            <p>
+              Use 8 or more characters, with a mix of letters,numbers and
+              symbols
+            </p>
+            <!-- signin/logoin buttom -->
+            <button type="submit">Register</button>
+            <!-- link to signup -->
+            <!-- <p>Don't have an account yet? <a href="">join now</a></p> -->
+            <hr />
+          </form>
+          <p>
+            Already have an account yet?
+            <a href="{% url 'index' %}">login now</a>
+          </p>
+        </div>
+        <div class="right-div">
+          <img
+            src="https://st.hzcdn.com/static/assets/login_chill.png"
+            height="150"
+          />
+        </div>
+      </div>
+    </main>
+    <!-- profile_list.html -->
+    <!-- {% for profile in UserProfile %}
+<p>Welcome {{ profile.username }}</p>
+<p>Email: {{ profile.email }}</p>
+Other fields... -->
+    <!-- {% endfor %} -->
+  </body>
+</html>
